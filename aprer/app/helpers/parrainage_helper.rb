@@ -1,0 +1,2 @@
+module ParrainageHelper
+end

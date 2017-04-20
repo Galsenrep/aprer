@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <%= image_tag @lesimage.image.url(:medium), alt: @lesimage.titre %>
+        <div class="caption text-center">
+          <p>
+            <strong>Titre:</strong>
+            <%= @lesimage.titre %>
+          </p>
+          <hr>
+          <p><%= link_to "Galerie", galerie_path, class: "btn btn-info" %>
+            <% if user_signed_in? || admin_signed_in? %>
+            <%= link_to "Gérer", lesimages_path, class: "btn btn-info" %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-3">
+
+    </div>
+  </div>
+</div>

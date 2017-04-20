@@ -1,0 +1,129 @@
+<%= provide :title, "Parrainage" %>
+<!-- Page Content -->
+ <div class="container">
+
+     <!-- Page Heading/Breadcrumbs -->
+     <div class="row">
+         <div class="col-lg-12">
+             <h1 class="page-header">Parrainage et Partenariat
+             </h1>
+             <ol class="breadcrumb">
+            <li>
+               <%= link_to "Accueil", root_path %>
+             </li>
+             <li>
+               <%= link_to "parrainage et Partenariat", parrainage_path, class: 'active' %>
+             </li>
+             </ol>
+         </div>
+     </div>
+     <!-- /.row -->
+
+     <!-- Image Header -->
+     <div class="row">
+         <div class="col-lg-12">
+             <img class="img-responsive" src="http://placehold.it/1200x300" alt="">
+         </div>
+     </div>
+     <!-- /.row -->
+
+
+     <!-- Service Tabs -->
+     <div class="row">
+         <div class="col-lg-12">
+             <h2 class="page-header">Parrainage / Partenariat</h2>
+         </div>
+         <div class="col-lg-12">
+
+             <ul id="myTab" class="nav nav-tabs nav-justified">
+                 <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-support"></i> Parrainage</a>
+                 </li>
+                 <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-user"></i> Partenariat</a>
+                 </li>
+             </ul>
+
+             <div id="myTabContent" class="tab-content">
+                 <div class="tab-pane fade active in" id="service-one">
+                     <h4>Parrainer</h4><br>
+                     <p>Parrainer c'est simple, et l'impact est parfois plus durable et profitable que les dons ponctuels et subventions de grandes structures humanitaires.</p>
+                     <p>Parce que la solidarité est d'abord une affaire de lien, nous avons décidé de mettre en place un système de parrainage pour chaque enfant, et pour chacun des besoins</p>
+                     <p>principaux de l'enfant basées sur une transparence totale: éducation, habillement et loisirs sont financés par</p>
+                     <p>des parrains qui en retour pourront être les témoins de l'évolution des enfants et du centre.</p>
+                     <p>Le centre garantit leur hébergement et leur alimentation. Le principe étant que chaque parrain s'engage à financer chaque mois et pour un engagement d'une année minimum,</p>
+                     <p>une somme dédiée à l'un de ces besoins. Grâce au réseau tissé au sein des adhérents, mais également du site internet de l'association, nous capterons de nouveaux parrains auxquels nous garantissons une parfaite transparence dans l'utilisation des dons.</p><br>
+                 </div>
+                 <div class="tab-pane fade" id="service-two">
+                     <h4>Devenir Partenaire</h4><br>
+                     <p>l peut s'agir de parrainer ponctuellement une activité, comme le lancement des AGR, ou encore de devenir le partenaire régulier d'une des actions de l'APRER, comme les interventions médicales lors des actions de rue</p>
+                     <p>Spécifique et ciblées, ce type de partenariat implique et valorise tous les partenaires de l'APRER, qu'ils soient sur le terrain ou à distance.</p>
+                     <p>Très concrètement, vous pouvez décidé de devenir l'un de nos collaborateur, en versant la somme de votre choix, vous deviendrez pleinement acteur du projet.</p><br>
+                 </div>
+             </div>
+
+         </div>
+
+  </div>
+  <!-- Call to Action Section -->
+  <div class="col-md-12 wellparrain">
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Pour obtenir les projets détaillés du centre et des AGR, pour devenir partenaire de l'une de ces actions ou parrainer un enfant.</h4>
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Devenez parrain/marrain ou partenaire", contact_path, class: "btn btn-lg btn-default btn-block" %>
+      </div>
+    </div>
+  </div>
+
+     <!-- Devenir partenaire liste-->
+     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+     <div class="row">
+         <div class="col-lg-12">
+             <h2 class="page-header">Les Différents partenariats</h2>
+         </div>
+         <div class="col-md-4">
+             <div class="media">
+                 <div class="pull-left">
+                     <span class="fa-stack fa-2x">
+                           <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                           <i class="fa fa-support fa-stack-1x fa-inverse"></i>
+                     </span>
+                 </div>
+                 <div class="media-body">
+                     <h4 class="media-heading">Devenir partenaire des actions de rues</h4>
+                     <%= link_to "Devenez partenaire", contact_path %>
+                 </div>
+             </div>
+
+         </div>
+         <div class="col-md-4">
+           <div class="media">
+               <div class="pull-left">
+                   <span class="fa-stack fa-2x">
+                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                         <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                   </span>
+               </div>
+               <div class="media-body">
+                   <h4 class="media-heading">Devenir partenaire des séjours de rupture</h4>
+                   <%= link_to "Devenez partenaire", contact_path %>
+               </div>
+           </div>
+         </div>
+         <div class="col-md-4">
+           <div class="media">
+               <div class="pull-left">
+                   <span class="fa-stack fa-2x">
+                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                         <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                   </span>
+               </div>
+               <div class="media-body">
+                   <h4 class="media-heading">Devenir partenaire du Centre d'Accueil</h4>
+                   <%= link_to "Devenez partenaire", contact_path %>
+               </div>
+           </div>
+         </div>
+
+     </div>
+</div>

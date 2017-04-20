@@ -1,0 +1,100 @@
+<!-- Page Content -->
+ <div class="container">
+
+     <!-- Page Heading/Breadcrumbs -->
+     <div class="row">
+         <div class="col-lg-12">
+             <h1 class="page-header"><%= @article.title %>
+             </h1>
+             <ol class="breadcrumb">
+               <li>
+                 <%= link_to "Accueil", root_path %>
+               </li>
+               <li>
+                 <%= link_to "Actualité", actualites_path, class: 'active' %>
+               </li>
+             </ol>
+         </div>
+     </div>
+     <!-- /.row -->
+
+     <!-- Content Row -->
+     <div class="row">
+         <div id="recherche2">
+           <div class="container">
+               <%= form_tag(actualites_path, :method => 'get') do %>
+               <div class="input-group">
+               <%=  text_field_tag :search, params[:search], placeholder: "Rechercher", class: "form-control" %>
+               <span class="input-group-btn">
+                 <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+               </span>
+               </div>
+               <% end %>
+               <% if !@articles.present? %>
+               <p>Aucun article n'est disponible pour: <%= params[:search] %>.</p>
+               <% end %>
+               <br>
+           </div>
+         </div>
+         <!-- Blog Post Content Column -->
+         <div class="col-md-2">
+
+         </div>
+         <div class="col-md-8">
+
+             <!-- Blog Post -->
+
+             <h3>
+                 <b> <%= @article.title %> </b>
+             </h3>
+
+             <hr>
+             <!-- Date/Time -->
+             <div class="row">
+                 <div class="col-md-6 text-left">
+                   <i class="fa fa-clock-o"></i> Publié le: <%= @article.created_at.strftime(" %m/%b/%Y %H:%M:%S") %>
+                 </div>
+                 <div class="col-md-6 text-right">
+                   Dernière modification: <%= @article.updated_at.strftime(" %m/%b/%Y %H:%M:%S") %>
+                 </div>
+             </div>
+             <hr>
+             <!-- Preview Image -->
+              <div class="col-md-12" align="middle">
+                  <%= image_tag @article.image.url(:medium) %>
+              </div>
+              <div class="col-md-12" text-align="justify">
+                  <br>
+                  <p> <%= raw @article.content %> </p>
+              </div>
+
+             <!--hr-->
+             <!-- Post Content -->
+              <hr>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <% if user_signed_in? || admin_signed_in? %>
+                  <a href="<%= articles_path %>" class="btn btn-primary">Gérer</a>
+                  <% end %>
+                  <a href="<%= actualites_path %>" class="btn btn-warning">Actualité</a>
+                </div>
+              </div>
+         </div>
+         <!--recherche-->
+         <div class="col-md-2">
+           <div class="col-md-12 col-xs-10" id="recherche1">
+           <%= form_tag(actualites_path, :method => 'get') do %>
+           <div class="input-group">
+             <%=  text_field_tag :search, params[:search], placeholder: "Rechercher", class: "form-control" %>
+             <span class="input-group-btn">
+                 <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+             </span>
+           </div>
+           <% end %>
+           <% if @articles.present? %>
+              <p>Aucun article n'est disponible pour: <%= params[:search] %>.</p>
+            <% end %>
+          </div>
+         </div>
+     </div>
+  </div>

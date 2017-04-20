@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title(yield :title) %></title>
+  <link rel="icon" type="image/png" href="../maquette/img4.png" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <div class="flash-alert">
+    <% if flash[:notice] %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="notice"><%= notice %></div>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="notice"><%= alert %></div>
+      </div>
+      <% end %>
+    </div>
+    <%= render 'layouts/partials/nav' %>
+
+    <%= yield %>
+<br>
+    <%= render 'layouts/partials/footer' %>
+</body>
+<script type="text/javascript">
+
+function responsive(){
+$w=$(window).width();
+$w=$w-15
+if($w>=751 && $w<1200){
+  $(".homedis").hide();
+  $(".branddis").show();
+$("#recherche1").css({ display:'none'});
+$("#logo").css({ display:"none"});
+$("#nav-social").css({'margin-left':'70%'});
+$("#logo2").css({'margin-bottom':'-40px'});
+$("#designed").css({'margin-left':'55%'});
+}
+if($w<753){
+  $(".homedis").hide();
+  $(".branddis").show();
+$("#footer").css({ width:$w});
+$("#recherche1").css({ display:'none'});
+$("#firs-slide").attr('src',"slider/mobile1.png");
+$("#second-slide").attr('src',"slider/mobile2.png");
+$("#third-slide").attr('src',"slider/mobile3.png");
+}
+else{
+  $(".homedis").show();
+  $(".branddis").hide();
+  $("#recherche2").css({ display:'none'});
+  $("#footer").css({ width:'98.8%'});}
+}
+
+  responsive();
+
+</script>
+</html>

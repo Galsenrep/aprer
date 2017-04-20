@@ -1,0 +1,110 @@
+<%= provide :title, "Contacts" %>
+<!-- Page Content -->
+ <div class="container">
+
+     <!-- Page Heading/Breadcrumbs -->
+     <div class="row">
+         <div class="col-lg-12">
+             <h1 class="page-header">Contact
+             </h1>
+             <ol class="breadcrumb">
+                 <li>
+                   <%= link_to "Accueil", root_path %>
+                 </li>
+                 <li>
+                   <%= link_to "Contact", new_contact_path, class: 'active' %>
+                 </li>
+             </ol>
+         </div>
+     </div>
+     <!-- /.row -->
+
+     <!-- Content Row -->
+     <div class="row">
+         <!-- Map Column -->
+         <div class="col-md-8">
+             <!-- Embedded Google Map -->
+             <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2294.547114580436!2d-17.272183757366825!3d14.715255738988361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec19fc137980b03%3A0x2f17ba47ed9b2b44!2sRufisque!5e0!3m2!1sfr!2ssn!4v1485969732561"></iframe>
+         </div>
+         <!-- Contact Details Column -->
+         <div class="col-md-4" align="center">
+             <h2><u>Contact</u>: <br></h2>
+             <p>
+                 Centre Terrou Xaleyi<br>Cité André KENY, Villa N° 19 - Lot 45,<br> Rufisque-Sénégal<br>
+             </p>
+             <p><i class="fa fa-phone"></i>
+                 : (+221) 77 538 06 89</p>
+             <p><i class="fa fa-phone"></i>
+                     : (+221) 70 333 51 36</p>
+             <p><i class="fa fa-phone"></i>
+                             : (+221) 77 052 30 39</p>
+             <p><i class="fa fa-envelope-o"></i>
+                <a href="mailto:aprer12@hotmail.fr">aprer12@hotmail.fr</a>
+             </p>
+             <p><i class="fa fa-envelope-o"></i>
+                 : <a href="mailto:diemeatabou@yahoo.fr">diemeatabou@yahoo.fr</a>
+             </p>
+             <ul class="list-unstyled list-inline list-social-icons">
+                 <li>
+                     <a href="#" class="btn btn-social-icon btn-facebook">
+                           <span class="fa fa-facebook"></span>
+                         </a></i></a>
+                 </li>
+                 <li>
+                   <a href="#" class="btn btn-social-icon btn-linkedin">
+                         <span class="fa fa-linkedin"></span>
+                       </a>
+                 </li>
+                 <li>
+                   <a href="#" class="btn btn-social-icon btn-twitter">
+                         <span class="fa fa-twitter"></span>
+                       </a>
+                 </li>
+                 <li>
+                   <a href="#" class="btn btn-social-icon btn-google">
+                         <span class="fa fa-google"></span>
+                       </a>
+                 </li>
+             </ul>
+         </div>
+     </div>
+     <!-- /.row -->
+
+     <!-- Contact Form -->
+     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+     <div class="row">
+       <div class="col-md-8">
+          <h3>Envoyez nous votre message.</h3>
+
+          <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+          <div class="control-group form-group">
+            <div class="controls">
+              <%= f.input :nom_prenom, :placeholder => "Nom et Prénom", :required => true, class: "form-control" %>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <%= f.input :email, :placeholder => "Entrer votre email", :required => true %>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <%= f.input :objet, :placeholder => "Objet", :required => true %>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <%= f.input :message, :as => :text, :required => true, rows: "10", cols: "100" %>
+            </div>
+          </div>
+
+            <div class= "hidden">
+              <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+            </div>
+              <%= f.button :submit, 'Envoyer', :class=> "btn btn-primary" %>
+          <% end %>
+
+        </div>
+      </div>
+     <!-- /.row -->
+</div>

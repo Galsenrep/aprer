@@ -1,0 +1,62 @@
+
+<%= provide :title, "Admin" %>
+<div id="wrapper">
+  <div class="navbar-default sidebar" role="navigation" id="side-bar">
+    <div class="sidebar-nav navbar-collapse">
+      <ul class="nav">
+        <li>
+          <%= link_to "Les articles", articles_path %>
+        </li>
+        <li>
+          <%= link_to "Les images", lesimages_path %>
+        </li>
+        <% if admin_signed_in? %>
+        <li>
+          <%= link_to "Utilisateurs", users_path %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+  </div>
+  <div id="page-wrapper">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Les Utilisateurs</h1>
+          <hr>
+          <table class="table table-condensed">
+            <thead class="bg-success">
+              <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Approuver?</th>
+                <th colspan="3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.each do |user| %>
+              <tr>
+                <td> <%= user.id %> </td>
+                <td> <%= user.first_name %> </td>
+                <td> <%= user.last_name %> </td>
+                <td> <%= user.email %> </td>
+                <td> <%= user.created_at %> </td>
+                <% if user.approved %>
+                  <td> OUI </td>
+                <% else %>
+                  <td> NON </td>
+                <% end %>
+                <td> <a href="<%= edit_user_path(user.id) %>" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a> </td>
+                <td> <a href="<%= admin_destroy_user_path(user.id) %>" class="btn btn-danger" data-confirm="Voulez-vous vraiment supprimer cet utilisateur ?" data-method="delete"><i class="fa fa-trash"></i></a> </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div> <!-- row users-->
+    </div>
+  </div>

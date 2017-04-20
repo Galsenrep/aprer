@@ -1,0 +1,2 @@
+module LesimagesHelper
+end
